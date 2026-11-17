@@ -8,6 +8,10 @@ Port Scanner is a web-based network scanning application developed using Python 
 
 The application provides live scanning progress, service identification, downloadable scan reports, and scan history through a user-friendly dashboard.
 
+## 📸 Project Dashboard
+
+![Port Scanner Dashboard](Port%20Scanner.png)
+
 ## ✨ Features
 
 - TCP port scanning
