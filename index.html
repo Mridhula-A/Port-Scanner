@@ -1,0 +1,349 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Port Scanner | Dashboard</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- ================================= -->
+    <!-- NAVIGATION BAR -->
+    <!-- ================================= -->
+
+    <header class="navbar">
+
+        <div class="brand">
+            <span class="brand-icon">⌘</span>
+            <span>Port<span class="brand-highlight">Scanner</span></span>
+        </div>
+
+        <span class="status-badge">● System Ready</span>
+
+    </header>
+
+
+    <main class="container">
+
+        <!-- ================================= -->
+        <!-- WELCOME SECTION -->
+        <!-- ================================= -->
+
+        <section class="welcome">
+
+            <p class="eyebrow">CYBERSECURITY TOOLKIT</p>
+
+            <h1>Port Scanner Dashboard</h1>
+
+            <p>
+                Discover open ports and identify services on authorized systems.
+            </p>
+
+        </section>
+
+
+        <!-- ================================= -->
+        <!-- START SCAN SECTION -->
+        <!-- ================================= -->
+
+        <section class="scan-card">
+
+            <h2>Start a New Scan</h2>
+
+            <p class="section-description">
+                Enter the target details below.
+            </p>
+
+            <form id="scanForm">
+
+                <div class="form-group">
+
+                    <label for="target">Target IPv4 Address</label>
+
+                    <input
+                        type="text"
+                        id="target"
+                        placeholder="127.0.0.1"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="startPort">Start Port</label>
+
+                        <input
+                            type="number"
+                            id="startPort"
+                            value="1"
+                            min="1"
+                            max="65535"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="endPort">End Port</label>
+
+                        <input
+                            type="number"
+                            id="endPort"
+                            value="100"
+                            min="1"
+                            max="65535"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <label class="permission">
+
+                    <input
+                        type="checkbox"
+                        id="authorized"
+                        required
+                    >
+
+                    I have permission to scan this system.
+
+                </label>
+
+
+                <button type="submit" id="scanButton">
+                    Start Scanning →
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- ================================= -->
+        <!-- SCAN RESULTS SECTION -->
+        <!-- ================================= -->
+
+        <section class="results-card">
+
+            <div class="results-heading">
+
+                <div>
+
+                    <h2>Scan Results</h2>
+
+                    <p class="section-description">
+                        Live port scanning information
+                    </p>
+
+                </div>
+
+                <span class="result-label" id="scanStatus">
+                    Waiting
+                </span>
+
+            </div>
+
+
+            <!-- STATISTICS -->
+
+            <div class="stats">
+
+                <div class="stat-box">
+
+                    <span>Total Scanned</span>
+
+                    <strong id="totalScanned">0</strong>
+
+                </div>
+
+
+                <div class="stat-box open-stat">
+
+                    <span>Open Ports</span>
+
+                    <strong id="openPorts">0</strong>
+
+                </div>
+
+
+                <div class="stat-box closed-stat">
+
+                    <span>Closed Ports</span>
+
+                    <strong id="closedPorts">0</strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROGRESS BAR -->
+
+            <div class="progress-area">
+
+                <div class="progress-info">
+
+                    <span>Scan Progress</span>
+
+                    <span id="progressText">0%</span>
+
+                </div>
+
+
+                <div class="progress-track">
+
+                    <div
+                        class="progress-fill"
+                        id="progressFill"
+                    ></div>
+
+                </div>
+
+            </div>
+
+
+            <!-- RESULTS TABLE -->
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Port</th>
+                            <th>Service</th>
+                            <th>Status</th>
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="resultsBody">
+
+                        <tr>
+
+                            <td colspan="3" class="empty-state">
+
+                                No scan results yet. Start a scan to see results.
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <!-- REPORT DOWNLOAD MESSAGE -->
+
+            <p id="reportMessage" class="report-message"></p>
+
+        </section>
+
+
+        <!-- ================================= -->
+        <!-- STAGE 9.3 - SCAN HISTORY -->
+        <!-- ================================= -->
+
+        <section class="history-section">
+
+            <div class="results-heading">
+
+                <div>
+
+                    <h2>Scan History</h2>
+
+                    <p class="section-description">
+                        View and download your previous scan reports.
+                    </p>
+
+                </div>
+
+
+                <button type="button" id="refreshHistory">
+                    ↻ Refresh
+                </button>
+
+            </div>
+
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Target IP</th>
+                            <th>Scan Date</th>
+                            <th>Report</th>
+                            <th>Action</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="historyBody">
+
+                        <tr>
+
+                            <td colspan="4" class="empty-state">
+
+                                Loading scan history...
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================================= -->
+    <!-- FOOTER -->
+    <!-- ================================= -->
+
+    <footer>
+
+        <p>
+            PORT SCANNER · Developed by <strong>Mridhula A</strong>
+        </p>
+
+        <span>Educational Cybersecurity Project</span>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>

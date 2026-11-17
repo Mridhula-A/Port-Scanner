@@ -1,0 +1,561 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* =====================================
+   PORT SCANNER - PASTEL DASHBOARD
+===================================== */
+
+:root {
+    --lavender: #DCD0FF;
+    --baby-pink: #FFD6E7;
+    --mint: #CFF5E7;
+    --soft-blue: #D6E9FF;
+    --cream: #FFF4DC;
+    --white: #FFFFFF;
+
+    --purple: #8966C8;
+    --dark-purple: #62439F;
+    --text: #39334A;
+    --muted: #898397;
+    --background: #F8F6FC;
+    --border: #EEEAF5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+/* =====================================
+   NAVBAR
+===================================== */
+
+.navbar {
+    width: 100%;
+    padding: 18px 7%;
+    background: var(--white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+}
+
+.brand {
+    font-size: 21px;
+    font-weight: 800;
+    color: var(--dark-purple);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.brand-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    background: var(--lavender);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.brand-highlight {
+    color: var(--purple);
+}
+
+.status-badge {
+    background: var(--mint);
+    color: #27845D;
+    padding: 7px 15px;
+    border-radius: 25px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+/* =====================================
+   MAIN CONTAINER
+===================================== */
+
+.container {
+    width: 86%;
+    max-width: 1200px;
+    margin: 35px auto;
+}
+
+/* =====================================
+   WELCOME SECTION
+===================================== */
+
+.welcome {
+    background: linear-gradient(
+        120deg,
+        #E9E0FF,
+        #FFEAF1,
+        #E4F1FF
+    );
+
+    padding: 40px;
+    border-radius: 22px;
+    margin-bottom: 28px;
+}
+
+.eyebrow {
+    color: var(--purple);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.welcome h1 {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--dark-purple);
+    margin-bottom: 10px;
+}
+
+.welcome p {
+    font-size: 14px;
+    color: #716A80;
+}
+
+/* =====================================
+   SCAN AND RESULTS CARDS
+===================================== */
+
+.scan-card,
+.results-card,
+.history-section {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 28px;
+
+    box-shadow: 0 8px 25px rgba(95, 75, 130, 0.055);
+}
+
+.scan-card h2,
+.results-card h2,
+.history-section h2 {
+    font-size: 21px;
+    font-weight: 800;
+    color: var(--dark-purple);
+    margin-bottom: 8px;
+}
+
+.section-description {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 24px;
+}
+
+/* =====================================
+   FORM
+===================================== */
+
+#scanForm {
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 9px;
+    color: var(--text);
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"] {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid #E3DDEE;
+    border-radius: 11px;
+    background: #FCFBFF;
+    font-family: inherit;
+    font-size: 13px;
+    color: var(--text);
+    outline: none;
+    transition: 0.2s;
+}
+
+.form-group input:focus {
+    border-color: var(--purple);
+    box-shadow: 0 0 0 3px rgba(137, 102, 200, 0.12);
+}
+
+.permission {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin: 18px 0;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.permission input {
+    accent-color: var(--purple);
+    width: 15px;
+    height: 15px;
+}
+
+/* =====================================
+   SCAN BUTTON
+===================================== */
+
+#scanButton {
+    background: var(--purple);
+    color: var(--white);
+    padding: 13px 25px;
+    border: none;
+    border-radius: 11px;
+    font-size: 13px;
+    font-weight: 800;
+    font-family: inherit;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+#scanButton:hover {
+    background: var(--dark-purple);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(137, 102, 200, 0.2);
+}
+
+#scanButton:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* =====================================
+   RESULTS HEADING
+===================================== */
+
+.results-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.result-label {
+    font-size: 11px;
+    color: var(--muted);
+    font-weight: 700;
+}
+
+#scanStatus {
+    background: var(--lavender);
+    color: var(--dark-purple);
+    padding: 7px 14px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+/* =====================================
+   STATISTICS
+===================================== */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 17px;
+    margin: 22px 0;
+}
+
+.stat-box {
+    padding: 21px;
+    border-radius: 16px;
+    text-align: center;
+}
+
+.stat-box h3 {
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+
+.stat-box p {
+    font-size: 28px;
+    font-weight: 800;
+}
+
+.stat-box:nth-child(1) {
+    background: var(--lavender);
+    color: #6546A4;
+}
+
+.open-stat {
+    background: var(--mint);
+    color: #25845B;
+}
+
+.closed-stat {
+    background: var(--baby-pink);
+    color: #C44F70;
+}
+
+/* =====================================
+   PROGRESS BAR
+===================================== */
+
+.progress-area {
+    margin: 25px 0;
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 9px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+#progressText {
+    color: var(--purple);
+}
+
+.progress-track {
+    width: 100%;
+    height: 11px;
+    background: #F0ECF6;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #A78BFA, #E8AFC9);
+    border-radius: 20px;
+    transition: width 0.3s ease;
+}
+
+/* =====================================
+   RESULTS TABLE
+===================================== */
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 12px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+thead {
+    background: #F1ECFA;
+}
+
+th {
+    color: var(--dark-purple);
+    font-weight: 800;
+    font-size: 12px;
+}
+
+th,
+td {
+    padding: 14px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    font-size: 12px;
+}
+
+tbody tr:hover {
+    background: #FBF9FF;
+}
+
+.empty-state {
+    text-align: center;
+    color: var(--muted);
+    padding: 25px;
+}
+
+/* =====================================
+   STAGE 9.4 - STATUS LABELS
+===================================== */
+
+.status-open,
+.status-closed,
+.status-error {
+    display: inline-block;
+    padding: 6px 13px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.4px;
+}
+
+.status-open {
+    background: #DDF5E8;
+    color: #238653;
+    border: 1px solid #B9E8CE;
+}
+
+.status-closed {
+    background: #FFE4EA;
+    color: #C44F70;
+    border: 1px solid #F8C5D2;
+}
+
+.status-error {
+    background: #FFF2CC;
+    color: #A87516;
+    border: 1px solid #F3DEA0;
+}
+
+/* =====================================
+   REPORT DOWNLOAD
+===================================== */
+
+#reportMessage,
+.report-message {
+    margin-top: 18px;
+    font-size: 12px;
+    color: var(--muted);
+}
+
+#reportMessage a,
+.report-message a,
+.history-download {
+    color: var(--dark-purple);
+    font-weight: 800;
+    text-decoration: none;
+}
+
+#reportMessage a:hover,
+.history-download:hover {
+    text-decoration: underline;
+}
+
+/* =====================================
+   SCAN HISTORY
+===================================== */
+
+.history-section {
+    margin-bottom: 30px;
+}
+
+.history-section h2 {
+    display: inline-block;
+}
+
+.history-section button {
+    float: right;
+    background: var(--lavender);
+    color: var(--dark-purple);
+    padding: 9px 16px;
+    border: none;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.history-section button:hover {
+    background: #D2C1F5;
+}
+
+/* =====================================
+   FOOTER
+===================================== */
+
+footer {
+    background: var(--white);
+    border-top: 1px solid var(--border);
+    text-align: center;
+    padding: 28px 15px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+footer span {
+    color: var(--purple);
+    font-weight: 800;
+}
+
+.footer-note {
+    font-size: 11px;
+}
+
+/* =====================================
+   RESPONSIVE DESIGN
+===================================== */
+
+@media (max-width: 768px) {
+
+    .container {
+        width: 92%;
+        margin: 22px auto;
+    }
+
+    .navbar {
+        padding: 15px 5%;
+    }
+
+    .welcome {
+        padding: 27px;
+    }
+
+    .welcome h1 {
+        font-size: 25px;
+    }
+
+    .scan-card,
+    .results-card,
+    .history-section {
+        padding: 21px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .results-heading {
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    .history-section button {
+        float: none;
+        margin-bottom: 12px;
+    }
+
+    table {
+        min-width: 550px;
+    }
+}
